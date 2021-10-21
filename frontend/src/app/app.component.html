@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+  <span>Promociones</span>
+  <button mat-stroked-button>
+    Listado de promociones
+  </button>
+  <button mat-stroked-button>
+    Nueva promocion
+  </button>
+
+  <button mat-stroked-button (click)="logOut()">
+    Salir
+  </button>
+</mat-toolbar>
+
+<div>
+  <form (ngSubmit)="enviar()">
+      <label for="title">Titulo: </label>
+      <input [(ngModel)]="promocion.titulo" name="titulo" type="text" id="title"><BR>
+      <label for="descrip">Descripcion: </label>
+      <input [(ngModel)]="promocion.descripcion" name="descripcion" type="text" id="descrip"><BR>
+      <label for="priceo">Precio Original: </label>
+      <input [(ngModel)]="promocion.precioOriginal" name="precioOriginal" type="text" id="priceo"><BR>
+      <label  for="pricep">Precio Pormocion: </label>
+      <input [(ngModel)]="promocion.precioPromocion" name="precioPromocion" type="text" id="pricep"><BR>
+      <label for="desc">% Descuento: </label>
+      <input [(ngModel)]="promocion.porcentajeDescuento" name="porcentajeDescuento" type="text" id="desc"><BR>
+<!--      <label for="img">Imagen: </label>-->
+<!--      <input  type="text" id="img"><BR>-->
+      <label for="detail">Detalles: </label>
+      <input [(ngModel)]="promocion.detalle" name="detalle" type="text" id="detail"><BR>
+      <label for="fip">Fecha Inicio Promocion: </label>
+      <input [(ngModel)]="promocion.fecha" name="fecha" type="date" id="fip"><BR>
+      <label for="countd">Cantidad de Dias: </label>
+      <input [(ngModel)]="promocion.cantidadDias" name="cantidadDias" type="text" id="countd"><BR>
+      <input type="submit" value="Enviar"> <input type="reset">
+  </form>
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Titulo</th>
+    <th>Descripcion</th>
+    <th>Precio Original</th>
+    <th>Porcentaje Descuento</th>
+    <th>Detalle</th>
+    <th>Fecha</th>
+    <th>Cantidad Dias</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let oferta of ofertas">
+    <td>{{oferta.id}}</td>
+    <td>{{oferta.titulo}}</td>
+    <td>{{oferta.descripcion}}</td>
+    <td>{{oferta.precioOriginal}}</td>
+    <td>{{oferta.porcentajeDescuento}}</td>
+    <td>{{oferta.detalle}}</td>
+    <td>{{oferta.fecha}}</td>
+    <td>{{oferta.cantidadDias}}</td>
+
+  </tr>
+</table>
